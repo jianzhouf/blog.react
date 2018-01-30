@@ -9,7 +9,6 @@ jspm_packages
 bower_components
 
 # 编辑器
-
 ## Sublime
 *.sublime-workspace
 
