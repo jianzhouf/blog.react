@@ -10,7 +10,7 @@ export default class BlogList extends React.Component {
 
     render() {
         return <div className="blog-list">
-            <div class="blog-list__item">
+            <div className="blog-list__item">
                 <div className="z-media">
                     <div className="z-media__header">
                         <img class="z-media__icon" src={demourl} />
