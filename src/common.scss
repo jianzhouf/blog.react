@@ -2,11 +2,22 @@
     float: left;
 }
 
+.z-right{
+    float: right;
+}
+
 .z-clear{
     &::after {
         content: "";
         display: block;
         clear: both;
     }
+}
+
+.ant-modal-mask {
+    z-index: 10000000;
+}
+.ant-modal-wrap{
+    z-index: 10000000;
 }
 

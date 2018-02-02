@@ -1,8 +1,5 @@
 .blog-list{
     &__item{
-        &:hover{
-            background-color: #f0f0f0;
-        }
         &:before{
             
         }
@@ -28,7 +25,9 @@
             display: table-cell;
             box-sizing: border-box;
             vertical-align: top;
-            
+        }
+        &__header{
+            width:1px;
         }
         &__header:first-child{
             padding-right: 1rem;

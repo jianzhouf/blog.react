@@ -1,0 +1,24 @@
+.article-container{
+    width: 60%;
+    margin:0 auto;
+    
+    padding-top: 2rem;
+    .article-title{
+        color: #40a9ff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+        text-align: center
+    }
+    .article-content{
+        padding: 2rem;
+        font-size: 1.3rem;
+
+     
+    }
+    .article-edit{
+        float: right;
+        font-size: 1rem;
+        margin-right: 3rem;
+    }
+}

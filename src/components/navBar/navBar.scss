@@ -1,0 +1,67 @@
+.blog-header{
+    box-shadow: 0 2px 8px #f0f1f2;
+    &__brand {
+        float: left;
+        font-size: 1.5rem;
+        a{
+            color:#1890ff;
+            font-style: italic;
+        }
+    }
+    .blog-right{
+        float: right;
+        line-height: 60px;
+        &__button{
+            display: inline-block;
+            height: 64px;
+            line-height: 60px;
+            min-width: 72px;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            font-size: 18px;
+            color:rgba(0, 0, 0, 0.65);
+            font-weight: bold;
+        }
+        &__write{
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 15px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            margin-right: 40px;
+            background-color: #1890ff;
+            
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    }
+}
+#logo {
+    overflow: hidden;
+    padding-left: 40px;
+    float: left;
+    height: 64px;
+    line-height: 64px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+#nav{
+    border: 0;
+    float: left;
+    margin-left: 40px;
+    &.ant-menu-horizontal > .ant-menu-item {
+        height: 64px;
+        line-height: 60px;
+        min-width: 72px;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        font-size: 18px;
+        &:hover {
+            border-top: 2px solid #1890ff;
+        }
+    }
+}
