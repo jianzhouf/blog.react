@@ -3,7 +3,7 @@ import "./blogList.scss"
 import demourl from '~/assets/imgs/demo.jpg'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { fetch } from '~/common'
 
 export default class BlogList extends React.Component {
 
@@ -15,11 +15,16 @@ export default class BlogList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('//localhost:3000/list').then((res) => {
+        fetch('/list', undefined, (data) => {
             this.setState({
-                blogList: res.data.data
+                blogList: data.data
             })
         })
+        // axios.get('//localhost:3000/list').then((res) => {
+        //     this.setState({
+        //         blogList: res.data.data
+        //     })
+        // })
     }
 
     clearHtmlTagSpace(str) {

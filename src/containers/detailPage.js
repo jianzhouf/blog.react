@@ -5,6 +5,7 @@ import "./styles/detail.scss"
 
 import NavBar from '~/components/navBar'
 import { Link } from 'react-router-dom'
+import { fetch } from '~/common'
 
 export default class DetailPage extends React.Component {
 
@@ -17,13 +18,9 @@ export default class DetailPage extends React.Component {
 
     componentDidMount() {
         const { id } = this.props.match.params
-        axios.get('//localhost:3000/detailById', {
-            params: {
-                id
-            }
-        }).then(res => {
+        fetch('/detailById', { id }, (data) => {
             this.setState({
-                data: res.data.data
+                data: data.data
             })
         })
     }
