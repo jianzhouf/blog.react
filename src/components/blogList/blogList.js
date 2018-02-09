@@ -20,11 +20,6 @@ export default class BlogList extends React.Component {
                 blogList: data.data
             })
         })
-        // axios.get('//localhost:3000/list').then((res) => {
-        //     this.setState({
-        //         blogList: res.data.data
-        //     })
-        // })
     }
 
     clearHtmlTagSpace(str) {

@@ -21,6 +21,11 @@
             font-size: 18px;
             color:rgba(0, 0, 0, 0.65);
             font-weight: bold;
+            .anticon{
+                position: relative;
+                top: -2px;
+                left: 5px;
+            }
         }
         &__write{
             display: inline-block;
@@ -38,6 +43,7 @@
         a:hover{
             text-decoration: none;
         }
+        
     }
 }
 #logo {

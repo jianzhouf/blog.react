@@ -1,6 +1,6 @@
 import React from 'react'
 import './navBar.scss'
-import { Menu, Modal, Form } from 'antd'
+import { Menu, Modal, Form, Dropdown, Icon } from 'antd'
 import { fetch } from '~/common'
 import SignForm from '~/components/signForm'
 const FormItem = Form.Item
@@ -9,7 +9,8 @@ export default class NavBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            visible: false
+            visible: false,
+            userInfo: {}
         }
     }
 
@@ -52,7 +53,26 @@ export default class NavBar extends React.Component {
     }
 
 
+    componentDidMount() {
+        fetch('/getUserInfo', undefined, (data) => {
+            this.setState({
+                userInfo: data.data
+            })
+        })
+    }
+
     render() {
+        const { userInfo } = this.state;
+        const menu = (
+            <Menu>
+                <Menu.Item>
+                    <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">个人中心</a>
+                </Menu.Item>
+                <Menu.Item>
+                    <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">退出</a>
+                </Menu.Item>
+            </Menu>
+        );
         return <div>
             <header className="blog-header z-clear">
                 <div className="blog-header__brand">
@@ -63,7 +83,13 @@ export default class NavBar extends React.Component {
                     <Menu.Item key="other">其他</Menu.Item>
                 </Menu>
                 <div className="blog-right">
-                    <a className="blog-right__button" href="javascript:;" onClick={this.showModal.bind(this)}>登录</a>
+                    {
+                        userInfo.userName ? <Dropdown overlay={menu}>
+                            <a className="ant-dropdown-link blog-right__button" href="#">
+                                {userInfo.userName}  <Icon type="down" />
+                            </a>
+                        </Dropdown> : <a className="blog-right__button" href="javascript:;" onClick={this.showModal.bind(this)}>登录</a>
+                    }
                     {/* <a className="blog-right__button" href="javascript:;">注册</a> */}
                     <a className="blog-right__write" href="#/edit">写文章</a>
                 </div>

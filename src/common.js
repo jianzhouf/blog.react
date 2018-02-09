@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Modal } from 'antd'
+var modalShow = false;
 export function fetch(url, data, success, method) {
     method = method ? method : 'get'
     let baseData = {}
@@ -16,10 +17,17 @@ export function fetch(url, data, success, method) {
         if (res.data.code === 0) {
             success(res.data)
         } else {
-            Modal.error({
-                title: '请求错误',
-                content: res.data.message || '未知错误',
-            })
+            if (url != '/getUserInfo' &&!modalShow) {
+                modalShow = true
+                Modal.error({
+                    title: '请求错误',
+                    content: res.data.message || '未知错误',
+                    afterClose() {
+                        modalShow = false;
+                    }
+                })
+            }
+
         }
     })
 }

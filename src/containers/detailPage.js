@@ -29,16 +29,17 @@ export default class DetailPage extends React.Component {
         const { data } = this.state
         return <div>
             <NavBar></NavBar>
-
-            <section className="blog-body">
-                <div className="article-container w-e-text">
-                    <div className="article-title">
-                        <div className="article-edit"><Link to={{ pathname: '/edit', query: { id: data._id } }}>编辑</Link></div>
-                        {data.title}
+            {
+                this.state.data.title && <section className="blog-body">
+                    <div className="article-container w-e-text">
+                        <div className="article-title">
+                            <div className="article-edit"><Link to={{ pathname: '/edit', query: { id: data._id } }}>编辑</Link></div>
+                            {data.title}
+                        </div>
+                        <div className="article-content" dangerouslySetInnerHTML={{ __html: data.content }}></div>
                     </div>
-                    <div className="article-content" dangerouslySetInnerHTML={{ __html: data.content }}></div>
-                </div>
-            </section>
+                </section>
+            }
         </div>
     }
 }
